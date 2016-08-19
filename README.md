@@ -1,5 +1,6 @@
 # PyPylon
 PyPylon is a Python wrapper for the pylon software suite. 
+**If you have any questions regarding this project please checkout [imaginghub.com](http://imaginghub.com/)!** 
 
 ## Installing
 1. Install pylon on your system
