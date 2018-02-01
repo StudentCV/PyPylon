@@ -1,3 +1,50 @@
+Version 1.1.0
+    - Date 2018-01-15
+    - Fixed a memory leak in exception handling code.
+    - Fixed a memory leak in string handling code.
+    - Fixed a crash, that happend when calling genicam.Deregister() on Win64.
+    - Completely reworked the SWIG source files. While this is largely
+      transparent to pypylon users, these changes in the API where introduced:
+       - The way the output pixel format of an ImageFormatConverter is set
+         became a little more pythonic. While in the past accessing it was done
+         like this:
+            converter.OutputPixelFormat.SetValue(format)
+            format = converter.OutputPixelFormat.GetValue()
+         now is has to be accessed directly as a property:
+            converter.OutputPixelFormat = format
+            format = converter.OutputPixelFormat
+
+Version 1.0.11
+    - Date 2017-10-16
+    - Use pylon 5.0.10.10613 to build pypylon.
+    - Enable usage of EnumerateTls.
+      E.g.:
+        tl_infos = pylon.TlFactory.GetInstance().EnumerateTls()
+    - Enable usage of the device filter in EnumerateDevices.
+      E.g.:
+        filter_list = [pylon.DeviceInfo()]
+        found_devices = pylon.TlFactory.GetInstance().EnumerateDevices(filter_list)
+    - Distribute pylons GenTL consumer library as well, so that GenTL producers
+      can be used.
+    - Restored support for PylonImageWindow on Windows. That got lost
+      accidentally in January 2015 (without anyone noticing it).
+
+Version 1.0.10
+    - Date 2016-11-29
+    - Use Pylon-BCON-INTERNAL_5.0.7.9644 (with BCON fixes) to create the builds
+      of pypylon for windows.
+
+Version 1.0.9
+    - Date 2016-11-18
+    - Use Pylon-BCON-INTERNAL_5.0.7.9615 (with BCON protocol extensions) to
+      create the builds of pypylon for windows.
+
+Version 1.0.8
+    - Date 2016-10-06
+    - Adapt SWIG code to a change in Pylon::CTlFactory.
+    - Use Pylon-BCON-INTERNAL_5.0.6.9389 (with BCON bug fixes) to create
+      build of pypylon for windows.
+
 Version 1.0.7
     - Date 2016-08-22
     - Use Pylon version 5.0.5.
